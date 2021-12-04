@@ -1,6 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 //THEN a high-quality, professional README.md is generated with the title
@@ -25,29 +26,29 @@ const questions = [
     type: "input",
     name: "description",
     message: "Description?",
-    validate: (githubInput) => {
-      if (githubInput) {
-        return true;
-      } else {
-        console.log("Please enter a description!");
-        return false;
-      }
-    },
+    // validate: (githubInput) => {
+    //   if (githubInput) {
+    //     return true;
+    //   } else {
+    //     console.log("Please enter a description!");
+    //     return false;
+    //   }
+    // },
   },
 
   {
     type: "confirm",
-    name: "tableContents",
-    message: "Would you like a table of contents?",
+    name: "license",
+    message: "Would you like to add a license?",
     default: true,
   },
   {
-    /// This will only show up if confirmAbout is true
+    /// This will only show up if license is true
     type: "input",
-    name: "installation",
-    message: "Installation?",
-    when: ({ confirmAbout }) => {
-      if (confirmAbout) {
+    name: "licenseChoices",
+    message: "Provide a license?",
+    when: ({ license }) => {
+      if (license) {
         return true;
       } else {
         return false;
@@ -55,10 +56,6 @@ const questions = [
     },
   },
 ];
-
-const promptUser = () => {
-  return inquirer.prompt(questions);
-};
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
@@ -83,12 +80,25 @@ const writeFile = (fileName, data) => {
 };
 
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  return inquirer.prompt(questions).then((readmeData) => {
+    console.log(readmeData.tableContents);
+    return readmeData;
+    // portfolioData.projects.push(projectData);
+    // if (projectData.confirmAddProject) {
+    //   return promptProject(portfolioData);
+    // } else {
+    //   return portfolioData;
+    // }
+  });
+}
 
 // Function call to initialize app
-init();
-
+// init().then(console.log(readmeData));
+init().then((readmeData) => {
+  console.log(readmeData);
+  // writeFile("fileme", readmeData.description);
+  writeFile("fileme", generateMarkdown(readmeData));
+});
 // writeFile works!!
 // writeFile("fileme", "hello");
-
-promptUser();
