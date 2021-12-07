@@ -12,7 +12,6 @@ const questions = [
     type: "input",
     name: "name",
     message: "What is the title of your project?",
-    // .split(" ").join("") later
     validate: (nameInput) => {
       if (nameInput) {
         return true;
@@ -25,15 +24,15 @@ const questions = [
   {
     type: "input",
     name: "description",
-    message: "Description?",
-    // validate: (githubInput) => {
-    //   if (githubInput) {
-    //     return true;
-    //   } else {
-    //     console.log("Please enter a description!");
-    //     return false;
-    //   }
-    // },
+    message: "Describe your application",
+    validate: (descriptionInput) => {
+      if (descriptionInput) {
+        return true;
+      } else {
+        console.log("Please enter a description!");
+        return false;
+      }
+    },
   },
 
   {
@@ -44,9 +43,10 @@ const questions = [
   },
   {
     /// This will only show up if license is true
-    type: "input",
+    type: "list",
     name: "licenseChoices",
-    message: "Provide a license?",
+    message: "Provide a license for your project",
+    choices: ["MIT", "Apache 2.0", "Boost 1.0", "BSD 3", "Eclipse 1.0"],
     when: ({ license }) => {
       if (license) {
         return true;
