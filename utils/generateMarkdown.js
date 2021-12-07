@@ -1,16 +1,20 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+// function renderLicenseBadge(license) {}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
   // switch ie if mit license, return mit link
-  if (license === "MIT") {
-    return "MIT";
+  switch (license) {
+    case "MIT":
+      return `This project is licensed under the MIT license.
+      [!MIT Badge](https://img.shields.io/npm/l/f)`;
+    case "Apache 2.0":
+      return "APACHE";
+    default:
+      return "";
   }
-
-  return "LICENSE LINK";
 }
 
 // TODO: Create a function that returns the license section of README
@@ -19,7 +23,7 @@ function renderLicenseSection(license) {
   if (!license) {
     return "";
   }
-  return renderLicenseLink(license);
+  return `## License`;
 }
 
 //THEN a high-quality, professional README.md is generated with the title
@@ -43,17 +47,13 @@ ${readmeData.description}
 
 
 ## Installation 
-    Install the following dependencies for the application: ${
-      readmeData.dependencies
-    }
+${readmeData.dependencies}
 
 ## Usage
     ${readmeData.usage}
-
     ![alt text](assets/images/screenshot.png)
 
-## License
-    ${renderLicenseSection(readmeData.license)}
+${renderLicenseSection(readmeData.license)}
     ${renderLicenseLink(readmeData.licenseChoices)}
 
 ## Contributions
