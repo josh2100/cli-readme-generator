@@ -12,16 +12,16 @@ function renderLicenseLink(license) {
 ![MIT Badge](https://img.shields.io/npm/l/f)`;
     case "Apache 2.0":
       return `This project is licensed under the Apache 2.0 license.
-![Apache 2.0 Badge](https://img.shields.io/npm/l/f`;
+![Apache 2.0 Badge](https://img.shields.io/badge/License-Apache%202.0-blue.svg)`;
     case "Boost 1.0":
       return `This project is licensed under the Boost 1.0 license.
-![Apache 2.0 Badge](https://img.shields.io/npm/l/f`;
+![Boost 1.0 Badge](https://img.shields.io/badge/License-Boost%201.0-lightblue.svg)`;
     case "BSD 3":
       return `This project is licensed under the BSD 3 license.
-![Apache 2.0 Badge](https://img.shields.io/npm/l/f`;
+![BSD 3 Badge](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)`;
     case "Eclipse 1.0":
       return `This project is licensed under the Eclipse 1.0 license.
-![Apache 2.0 Badge](https://img.shields.io/npm/l/f`;
+![Eclipse 1.0 Badge](https://img.shields.io/badge/License-EPL%201.0-red.svg)`;
     default:
       return "";
   }

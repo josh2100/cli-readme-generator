@@ -21,6 +21,7 @@ const questions = [
       }
     },
   },
+
   {
     type: "input",
     name: "description",
@@ -70,6 +71,7 @@ const questions = [
     message: "Would you like to add a license?",
     default: true,
   },
+
   {
     /// This will only show up if license is true
     type: "list",
@@ -100,24 +102,19 @@ const questions = [
   },
 
   {
-    type: "confirm",
-    name: "testSection",
-    message: "Would you like to add a tests section?",
-    default: false,
-  },
-
-  {
     type: "input",
     name: "tests",
     message: "Describe how to test your application.",
-    when: ({ testSection }) => {
-      if (testSection) {
+    validate: (testsInput) => {
+      if (testsInput) {
         return true;
       } else {
+        console.log("Please enter how to test your application.");
         return false;
       }
     },
   },
+
   {
     type: "input",
     name: "credits",
@@ -131,6 +128,7 @@ const questions = [
       }
     },
   },
+
   {
     type: "input",
     name: "questions",
@@ -147,20 +145,17 @@ const questions = [
   },
 ];
 
-// TODO: Create a function to write README file
-// function writeToFile(fileName, data) {}
-//from portfolio generator
+// Writes README data to markdown file
 const writeFile = (fileName, data) => {
   return new Promise((resolve, reject) => {
-    // fs.writeFile("./dist/index.html", data, (err) => {
     fs.writeFile(`./dist/${fileName}.md`, data, (err) => {
-      // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
+      // if error, reject the Promise,  send to .catch() method
       if (err) {
         reject(err);
         return;
       }
 
-      // if everything went well, resolve the Promise and send the successful data to the `.then()` method
+      //resolve the Promise and send data to the .then() method
       resolve({
         ok: true,
         message: "Markdown file created!",
@@ -169,17 +164,11 @@ const writeFile = (fileName, data) => {
   });
 };
 
-// TODO: Create a function to initialize app
+// Ask array of questions with inquirer and return README data
 function init() {
   return inquirer.prompt(questions).then((readmeData) => {
-    console.log(readmeData.tableContents);
+    // console.log(readmeData.tableContents);
     return readmeData;
-    // portfolioData.projects.push(projectData);
-    // if (projectData.confirmAddProject) {
-    //   return promptProject(portfolioData);
-    // } else {
-    //   return portfolioData;
-    // }
   });
 }
 

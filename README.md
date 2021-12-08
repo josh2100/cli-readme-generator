@@ -29,7 +29,7 @@ Run node index on your command line while in root directory
 
 ## License
 
-    This project is licensed under the MIT license.
+This project is licensed under the MIT license.
 
 ![MIT Badge](https://img.shields.io/npm/l/f)
 
