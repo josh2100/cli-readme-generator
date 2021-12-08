@@ -36,6 +36,35 @@ const questions = [
   },
 
   {
+    type: "input",
+    name: "installation",
+    message:
+      "Describe how to install your application, and list any dependencies",
+    validate: (installationInput) => {
+      if (installationInput) {
+        return true;
+      } else {
+        console.log("Please enter an installation description!");
+        return false;
+      }
+    },
+  },
+
+  {
+    type: "input",
+    name: "usage",
+    message: "Describe how to use your application.",
+    validate: (usageInput) => {
+      if (usageInput) {
+        return true;
+      } else {
+        console.log("Please enter a usage description!");
+        return false;
+      }
+    },
+  },
+
+  {
     type: "confirm",
     name: "license",
     message: "Would you like to add a license?",
@@ -51,6 +80,67 @@ const questions = [
       if (license) {
         return true;
       } else {
+        return false;
+      }
+    },
+  },
+
+  {
+    type: "input",
+    name: "contributions",
+    message: "Describe how to contribute to your application.",
+    validate: (usageInput) => {
+      if (usageInput) {
+        return true;
+      } else {
+        console.log("Please enter a contribution explanation!");
+        return false;
+      }
+    },
+  },
+
+  {
+    type: "confirm",
+    name: "testSection",
+    message: "Would you like to add a tests section?",
+    default: false,
+  },
+
+  {
+    type: "input",
+    name: "tests",
+    message: "Describe how to test your application.",
+    when: ({ testSection }) => {
+      if (testSection) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "credits",
+    message: "Give credits to the people who helped create this project.",
+    validate: (creditInput) => {
+      if (creditInput) {
+        return true;
+      } else {
+        console.log("Please enter credits!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "questions",
+    message:
+      "Tell others how they can ask questions or contact you about the project.",
+    validate: (questionInput) => {
+      if (questionInput) {
+        return true;
+      } else {
+        console.log("Please enter question information!");
         return false;
       }
     },

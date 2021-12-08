@@ -11,7 +11,17 @@ function renderLicenseLink(license) {
       return `This project is licensed under the MIT license.
 ![MIT Badge](https://img.shields.io/npm/l/f)`;
     case "Apache 2.0":
-      return "APACHE";
+      return `This project is licensed under the Apache 2.0 license.
+![Apache 2.0 Badge](https://img.shields.io/npm/l/f`;
+    case "Boost 1.0":
+      return `This project is licensed under the Boost 1.0 license.
+![Apache 2.0 Badge](https://img.shields.io/npm/l/f`;
+    case "BSD 3":
+      return `This project is licensed under the BSD 3 license.
+![Apache 2.0 Badge](https://img.shields.io/npm/l/f`;
+    case "Eclipse 1.0":
+      return `This project is licensed under the Eclipse 1.0 license.
+![Apache 2.0 Badge](https://img.shields.io/npm/l/f`;
     default:
       return "";
   }
@@ -47,23 +57,28 @@ ${readmeData.description}
 
 
 ## Installation 
-${readmeData.dependencies}
+${readmeData.installation}
 
 ## Usage
-    ${readmeData.usage}
-    ![alt text](assets/images/screenshot.png)
+(add images directory to attach screenshot here)
+![alt text](assets/images/screenshot.png)
+
+${readmeData.usage}
 
 ${renderLicenseSection(readmeData.license)}
     ${renderLicenseLink(readmeData.licenseChoices)}
 
 ## Contributions
-    [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+${readmeData.contributions}
 
 ## Tests
+${readmeData.tests}
 
 ## Credits
+${readmeData.credits}
 
 ## Questions
+${readmeData.questions}
 `;
 }
 

@@ -1,12 +1,10 @@
-# Professional README Generator Starter Code
-
 [How to create a Professional README](./readme-guide.md)
 
-# movie me
+# CLI Readme Generator
 
 # Description
 
-movie generator
+This is a node project in which a user can dynamically generate a README.md file from their command line interface.
 
 ## Table of Contents
 
@@ -20,12 +18,14 @@ movie generator
 
 ## Installation
 
-undefined
+Use npm install to install jest and inquirer, which are required for this application
 
 ## Usage
 
-    undefined
-    ![alt text](assets/images/screenshot.png)
+(add images file to attach screenshot here)
+![alt text](assets/images/screenshot.png)
+
+Run node index on your command line while in root directory
 
 ## License
 
@@ -35,10 +35,16 @@ undefined
 
 ## Contributions
 
-    [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
+Fork the project and create a pull request
 
 ## Tests
 
+undefined
+
 ## Credits
 
+Created by Joshua Schermann
+
 ## Questions
+
+Find me on linkedin
