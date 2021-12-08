@@ -1,12 +1,8 @@
-// TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
 
-// TODO: Create an array of questions for user input
-//THEN a high-quality, professional README.md is generated with the title
-//of my project and sections entitled Description, Table of Contents,
-//Installation, Usage, License, Contributing, Tests, and Questions
+// Array of questions to be asked with inquirer
 const questions = [
   {
     type: "input",
@@ -131,14 +127,27 @@ const questions = [
 
   {
     type: "input",
-    name: "questions",
-    message:
-      "Tell others how they can ask questions or contact you about the project.",
-    validate: (questionInput) => {
-      if (questionInput) {
+    name: "github",
+    message: "Enter your Github username for the questions section.",
+    validate: (githubInput) => {
+      if (githubInput) {
         return true;
       } else {
-        console.log("Please enter question information!");
+        console.log("Please enter your github username!");
+        return false;
+      }
+    },
+  },
+
+  {
+    type: "input",
+    name: "email",
+    message: "Enter your email address for the questions section.",
+    validate: (emailInput) => {
+      if (emailInput) {
+        return true;
+      } else {
+        console.log("Please enter your email address!");
         return false;
       }
     },
@@ -149,7 +158,7 @@ const questions = [
 const writeFile = (fileName, data) => {
   return new Promise((resolve, reject) => {
     fs.writeFile(`./dist/${fileName}.md`, data, (err) => {
-      // if error, reject the Promise,  send to .catch() method
+      // if error, reject Promise, send to .catch() method
       if (err) {
         reject(err);
         return;
@@ -167,17 +176,12 @@ const writeFile = (fileName, data) => {
 // Ask array of questions with inquirer and return README data
 function init() {
   return inquirer.prompt(questions).then((readmeData) => {
-    // console.log(readmeData.tableContents);
     return readmeData;
   });
 }
 
-// Function call to initialize app
-// init().then(console.log(readmeData));
+// Promise chain asks questions, returns data, and writes to MD file
 init().then((readmeData) => {
   console.log(readmeData);
-  // writeFile("fileme", readmeData.description);
-  writeFile("fileme", generateMarkdown(readmeData));
+  writeFile("README", generateMarkdown(readmeData));
 });
-// writeFile works!!
-// writeFile("fileme", "hello");

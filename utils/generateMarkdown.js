@@ -1,11 +1,5 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
-// If there is no license, return an empty string
-// function renderLicenseBadge(license) {}
-
-// TODO: Create a function that returns the license link
-// If there is no license, return an empty string
 function renderLicenseLink(license) {
-  // switch ie if mit license, return mit link
+  // Provides badges based on license chosen
   switch (license) {
     case "MIT":
       return `This project is licensed under the MIT license.
@@ -27,8 +21,7 @@ function renderLicenseLink(license) {
   }
 }
 
-// TODO: Create a function that returns the license section of README
-// If there is no license, return an empty string
+// Returns license section heading if license is chosen
 function renderLicenseSection(license) {
   if (!license) {
     return "";
@@ -36,10 +29,7 @@ function renderLicenseSection(license) {
   return `## License`;
 }
 
-//THEN a high-quality, professional README.md is generated with the title
-//of my project and sections entitled Description, Table of Contents,
-//Installation, Usage, License, Contributing, Tests, and Questions
-// TODO: Create a function to generate markdown for README
+// Generates Markdown for README
 function generateMarkdown(readmeData) {
   return `# ${readmeData.name}
 
@@ -78,7 +68,9 @@ ${readmeData.tests}
 ${readmeData.credits}
 
 ## Questions
-${readmeData.questions}
+Contact me on Github or email for questions:
+  * GitHub: https://github.com/${readmeData.github}
+  * Email: ${readmeData.email}
 `;
 }
 
