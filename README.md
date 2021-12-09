@@ -1,4 +1,5 @@
 # CLI README Generator
+Demo video at https://drive.google.com/file/d/143vyGXx1vpvwJtyKmEbKocH0Ub2kfVIS/view?usp=sharing
 
 # Description
 
@@ -38,4 +39,4 @@ Created by Joshua Schermann, special thanks to the University of Minnesota Codin
 
 ## Questions
 
-Find me on Linkedin, or post an issue if you see a bug or suggested improvement.
+Post an issue if you see a bug or suggested improvement.
